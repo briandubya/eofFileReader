@@ -100,3 +100,20 @@ tr:hover {
     background-color: #007bff;
     color: white;
 }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-top: 1px solid #e7e7e7;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #333;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 14px;
+}
