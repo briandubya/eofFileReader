@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+
+input[type="file"] {
+    margin-bottom: 10px;
+}
+
+#processClearBtn {
+    display: flex;
+}
+
+button {
+    display: inline-flex;    
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#clearBtn {
+    background-color: #ff0000;
+}
+
+#clearBtn:hover {
+    background-color: #f08282;
+}
+
+table {
+    margin-top: 20px;
+    width: 75%;
+    border-collapse: collapse;
+    align-items: center;
+    justify-content: center;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    position: sticky;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+#searchInput {
+    display: block;
+    padding: 8px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Styles for Radio Buttons */
+#radioSelection {
+    display: flex;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#radioSelection input[type="radio"] {
+    display: none; /* Hide default radio button */
+}
+
+#radioSelection label {
+    padding: 10px 20px;
+    border: 1px solid #007bff;
+    border-radius: 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#radioSelection input[type="radio"]:checked + label {
+    background-color: #007bff;
+    color: white;
+}

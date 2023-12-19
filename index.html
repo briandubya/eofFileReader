@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESTRY OUTFILE File Processor</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <input type="file" id="fileInput">
+    <div id="processClearbtn">
+        <button id="processBtn" onclick="processFile()">Process File</button>
+        <button id="clearBtn" onclick="clearTable()">Clear Table</button>
+    </div>
+    <div id="radioSelection">
+        <input type="radio" id="velocity" name="dataSelection" value="velocity" checked>
+        <label for="velocity">Velocity</label>
+        <input type="radio" id="flow" name="dataSelection" value="flow">
+        <label for="flow">Flow</label>
+    </div>
+    <input type="text" id="searchInput" placeholder="Search in table..." onkeyup="searchTable()">
+    <table id="outputTable">
+        <thead>
+            <tr>
+                <th>Channel</th>
+                <th>Time Min</th>
+                <th>Minimum</th>
+                <th>Time Max</th>
+                <th>Maximum</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>
