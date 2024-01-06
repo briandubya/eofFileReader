@@ -11,6 +11,7 @@ function processFile() {
     reader.onload = function(e) {
         const lines = e.target.result.split('\n');
         processData(lines, selection);
+        extractChannelData(lines)
     };
     reader.readAsText(file);
 }
@@ -53,6 +54,65 @@ function processData(lines, selection) {
 // Removes any non-numerical characters from a string and converts it to a float
 function cleanValue(value) {
     return parseFloat(value.replace(/[^\d.-]/g, ''));
+}
+
+// Extracts the channel data from the eof file
+function extractChannelData(lines) {
+    // const lines = text.split('\n');
+    let channelDataStarted = false;
+    const channelData = [];
+    let lineBreakCount = 0;
+
+    for (const line of lines) {
+        if (line.trim().startsWith('CHANNEL DATA')) {
+            channelDataStarted = true;
+            continue;
+        }
+
+        if (channelDataStarted) {
+            if (line.trim() === '') {
+                lineBreakCount++;
+                if (lineBreakCount > 2) break; // Stop if it's the line break after the data
+                continue; // Skip the line break after the column names
+            }
+
+            const columns = line.trim().split(/\s+/);
+            const channelDatum = {
+                number: columns[0],
+                channel: columns[1],
+                usNode: columns[2],
+                dsNode: columns[3],
+                flags: columns[4],
+                length: columns[5],
+                formLoss: columns[6],
+                nOrCd: columns[7],
+                initVel: columns[8],
+                usBedLevels: columns[9],
+                dsBedLevels: columns[10],
+                blockage: columns[11]
+            };
+            channelData.push(channelDatum);
+        }
+    }
+
+
+    for (let i = 1; i < channelData.length; i++) {
+        const row = channelBody.insertRow();
+        row.insertCell(0).textContent = channelData[i].number;
+        row.insertCell(1).textContent = channelData[i].channel;
+        row.insertCell(2).textContent = channelData[i].usNode;
+        row.insertCell(3).textContent = channelData[i].dsNode;
+        row.insertCell(4).textContent = channelData[i].flags;
+        row.insertCell(5).textContent = channelData[i].length;
+        row.insertCell(6).textContent = channelData[i].formLoss;
+        row.insertCell(7).textContent = channelData[i].nOrCd;
+        row.insertCell(8).textContent = channelData[i].initVel;
+        row.insertCell(9).textContent = channelData[i].usBedLevels;
+        row.insertCell(10).textContent = channelData[i].dsBedLevels;
+        row.insertCell(11).textContent = channelData[i].blockage;
+    }
+
+    // console.log(channelData[1]);
 }
 
 // Clear the table 

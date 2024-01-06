@@ -10,30 +10,56 @@
         <button id="processBtn" onclick="processFile()">Process File</button>
         <button id="clearBtn" onclick="clearTable()">Clear Table</button>
     </div>
-    <div id="radioSelection">
-        <input type="radio" id="velocity" name="dataSelection" value="velocity" checked>
-        <label for="velocity">Velocity</label>
-        <input type="radio" id="flow" name="dataSelection" value="flow">
-        <label for="flow">Flow</label>
-    </div>
-    <input type="text" id="searchInput" placeholder="Search in table..." onkeyup="searchTable()">
-    <table id="outputTable">
-        <thead>
-            <tr>
-                <th>Channel</th>
-                <th>Time Min</th>
-                <th>Minimum</th>
-                <th>Time Max</th>
-                <th>Maximum</th>
-            </tr>
-        </thead>
-        <tbody id="tableBody">
-        </tbody>
-    </table>
-    <footer>
+    <section>
+        <h2>Max Velocity and Flow Rate</h2>
+        <div id="radioSelection">
+            <input type="radio" id="velocity" name="dataSelection" value="velocity" checked>
+            <label for="velocity">Velocity</label>
+            <input type="radio" id="flow" name="dataSelection" value="flow">
+            <label for="flow">Flow</label>
+        </div>
+        <input type="text" id="searchInput" placeholder="Search in table..." onkeyup="searchTable()">
+        <table id="outputTable">
+            <thead>
+                <tr>
+                    <th>Channel</th>
+                    <th>Time Min</th>
+                    <th>Minimum</th>
+                    <th>Time Max</th>
+                    <th>Maximum</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h2>Channel Data</h2>
+        <table id="channelTable">
+            <thead>
+                <tr>
+                    <th>number</th>
+                    <th>channel</th>
+                    <th>usNode</th>
+                    <th>dsNode</th>
+                    <th>flags</th>
+                    <th>length</th>
+                    <th>formLoss</th>
+                    <th>nOrCd</th>
+                    <th>initVel</th>
+                    <th>usBedLevels</th>
+                    <th>usBedLevels</th>
+                    <th>blockage</th>
+                </tr>
+            </thead>
+            <tbody id="channelBody">
+            </tbody>
+        </table>
+    </section>
+    <!-- <footer>
         <p>Brian Waidyaratne</p>
         <p>Issues? <a href="mailto:bwaidyaratne@systra.com">Get in touch</a></p>
-    </footer>
+    </footer> -->
     <script src="script.js"></script>
 </body>
 </html>
